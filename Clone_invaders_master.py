@@ -5,7 +5,7 @@ import sys
 from gun_char import Gun_char
 #Enemies
 from enemy_B import Enemy_B, armada
-
+from Game_Over import Game_Over
 #sprites
 from pygame.sprite import Sprite
 #some variables
@@ -67,6 +67,12 @@ while True:
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
+    pressed_keys = pygame.key.get_pressed()
+    if pressed_keys[K_p]:
+        g=Game_Over(x=WIDTH/2,y=HEIGHT/2,all_sprites=all_sprites)
+        all_sprites.add(g)
+        
+
     all_sprites.update()
     if armada.hit_wall:
         armada.direction=-armada.direction

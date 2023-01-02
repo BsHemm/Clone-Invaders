@@ -27,11 +27,7 @@ class Enemy_B(Sprite):
     def __init__(self,x,y,all_sprites):
         super(). __init__ ()
    
-        # self.x = x
-        # self.y = y
-        
-        self.image=pygame.surface.Surface((64,64))
-        self.image.fill((0, 0, 0))
+     
         self.image = pygame.image.load("enemy_B2.png").convert_alpha()
         # corodinates of the Png
         self.rect = self.image.get_rect(center = (x,y))
