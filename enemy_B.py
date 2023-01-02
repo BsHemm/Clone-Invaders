@@ -1,7 +1,8 @@
 import pygame
 import sys
-from Enemy_Bullet import Missile
+import random
 
+from Enemy_Bullet import Missile
 from pygame.sprite import Sprite
 from pygame.locals import *
 from constants import WIDTH,HEIGHT
@@ -21,7 +22,7 @@ armada=Armada()
 
 
 #enemy_A "sprite"
-class Enemy_A(Sprite):
+class Enemy_B(Sprite):
     #constructor
     def __init__(self,x,y,all_sprites):
         super(). __init__ ()
@@ -63,3 +64,6 @@ class Enemy_A(Sprite):
         #     self.health-=1
         # if self.health >=0:pass
         #     #enemy despawns
+        if random.random()<0.003:
+            m = Missile(x=self.rect.x,y=self.rect.y)
+            self.all_sprites.add(m)

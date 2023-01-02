@@ -4,7 +4,7 @@ import sys
 #gun character
 from gun_char import Gun_char
 #Enemies
-from enemy_A import Enemy_A, armada
+from enemy_B import Enemy_B, armada
 
 #sprites
 from pygame.sprite import Sprite
@@ -35,9 +35,9 @@ for x in range(50,WIDTH-200,75):
 
         #enemies INstances
         # enemy_a=Enemy_A(x*75,50,all_sprites)
-        enemy_a=Enemy_A(x,y,all_sprites)
-        all_sprites.add(enemy_a)
-        enemy_ships.add(enemy_a)
+        enemy=Enemy_B(x,y,all_sprites)
+        all_sprites.add(enemy)
+        enemy_ships.add(enemy)
 
 #Lose conditions; conditions that make teh game over screen come up
 
@@ -62,15 +62,15 @@ for x in range(50,WIDTH-200,75):
         # all_sprites.add(game_over)
         #enemy_ships.add(enemy_a)
 #game loop
-    while True:
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
-        all_sprites.update()
-        if armada.hit_wall:
-            armada.direction=-armada.direction
-            armada.reset()
+while True:
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+    all_sprites.update()
+    if armada.hit_wall:
+        armada.direction=-armada.direction
+        armada.reset()
         for ship in enemy_ships:
             ship.rect.y +=50 
     #lose conditions
@@ -79,7 +79,7 @@ for x in range(50,WIDTH-200,75):
         #im = Image.open("bear.png")
         #im.show()
 
-        displaysurface.fill((0,0,0))
-        all_sprites.draw(displaysurface)
-        pygame.display.update()
-        clock.tick(FPS)
+    displaysurface.fill((0,0,0))
+    all_sprites.draw(displaysurface)
+    pygame.display.update()
+    clock.tick(FPS)
