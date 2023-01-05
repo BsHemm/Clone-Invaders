@@ -29,6 +29,7 @@ enemy_ships=pygame.sprite.Group()
 # GUN_char instance
 gun_char=Gun_char(all_sprites,enemy_ships)
 all_sprites.add(gun_char) 
+#define Gun_char health? INstance?
 #enemy creation arrangemnt loopS
 for x in range(50,WIDTH-200,75):
     for y in range(50,HEIGHT-375,75):
@@ -40,27 +41,13 @@ for x in range(50,WIDTH-200,75):
         enemy_ships.add(enemy)
 
 #Lose conditions; conditions that make teh game over screen come up
+#press p (applied), endzone crossed ( not applied), player loses all health (not applied)
+#enemy crosses into endzone
+#gunchar health is <=0
 
-#endzone is the bottom of the screen that when crossed by an enemy causes lose condition
-#endZone Instance
 
-#endzone Creation
-#endzone<=Height-475
 
-#player death is when Gun_Char loses all health, causing Lose condition
-
-#game over Screen Instance
-# game_over=Game_Over(all_sprites,enemy_ships)
-# all_sprites.add(gun_char) 
-
-#game over screen Creation
-# for x in range(50,WIDTH-200,75):
-#     for y in range(50,HEIGHT-375,75):
-
-        #GAme over INstances
-        # game_over=Game_Over(x,y,all_sprites)
-        # all_sprites.add(game_over)
-        #enemy_ships.add(enemy_a)
+        
 #game loop
 while True:
     for event in pygame.event.get():

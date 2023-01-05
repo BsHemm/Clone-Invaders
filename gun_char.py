@@ -44,13 +44,3 @@ class Gun_char(Sprite):
         if pressed_keys[K_k]:
             if self.dead==False:
                 self.dead=True
-# #Gun_Char's projectile.
-# class projectile(object):
-#     def __init__(self,x,y,radius,color,facing):
-#         self.x = x
-#         self.y = y
-#         self.radius = radius
-#         self.image=pygame.surface.Surface((2,8))
-#         self.image.fill((73, 0, 0))
-#         self.facing = facing
-#         self.vel = 8 * facing
