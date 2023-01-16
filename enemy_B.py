@@ -62,6 +62,12 @@ class Enemy_B(Sprite):
         #     self.health-=1
         # if self.health >=0:pass
         #     #enemy despawns
+
+        hits = pygame.sprite.spritecollide(self, game_state.player_ships, True)
+        if hits:
+            game_state.game_over = True
+
+
         if random.random()<0.003:
             m = Missile(x=self.rect.x,y=self.rect.y)
             game_state.all_sprites.add(m)
