@@ -12,6 +12,8 @@ from pygame.sprite import Sprite
 from pygame.locals import *
 from constants import WIDTH,HEIGHT,FPS
 
+import game_state
+
 pygame.init() #background engines
 vec = pygame.math.Vector2  # 2 for two dimensional
  
@@ -22,23 +24,21 @@ displaysurface = pygame.display.get_surface()
 displaysurface = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Clone Invaders")
 
-#sprite Group
-all_sprites = pygame.sprite.Group()
-enemy_ships=pygame.sprite.Group() 
+
 
 # GUN_char instance
-gun_char=Gun_char(all_sprites,enemy_ships)
-all_sprites.add(gun_char) 
+gun_char=Gun_char()
+game_state.all_sprites.add(gun_char)
 #define Gun_char health? INstance?
 #enemy creation arrangemnt loopS
 for x in range(50,WIDTH-200,75):
     for y in range(50,HEIGHT-375,75):
 
         #enemies INstances
-        # enemy_a=Enemy_A(x*75,50,all_sprites)
-        enemy=Enemy_B(x,y,all_sprites)
-        all_sprites.add(enemy)
-        enemy_ships.add(enemy)
+        # enemy_a=Enemy_A(x*75,50)
+        enemy=Enemy_B(x,y)
+        game_state.all_sprites.add(enemy)
+        game_state.enemy_ships.add(enemy)
 
 #Lose conditions; conditions that make teh game over screen come up
 #press p (applied), endzone crossed ( not applied), player loses all health (not applied)
@@ -56,15 +56,15 @@ while True:
             sys.exit()
     pressed_keys = pygame.key.get_pressed()
     if pressed_keys[K_p]:
-        g=Game_Over(x=WIDTH/2,y=HEIGHT/2,all_sprites=all_sprites)
-        all_sprites.add(g)
+        g=Game_Over(x=WIDTH/2,y=HEIGHT/2)
+        game_state.all_sprites.add(g)
         
 
-    all_sprites.update()
+    game_state.all_sprites.update()
     if armada.hit_wall:
         armada.direction=-armada.direction
         armada.reset()
-        for ship in enemy_ships:
+        for ship in game_state.enemy_ships:
             ship.rect.y +=50 
     #lose conditions
     #if player_health <=0:
@@ -73,6 +73,6 @@ while True:
         #im.show()
 
     displaysurface.fill((0,0,0))
-    all_sprites.draw(displaysurface)
+    game_state.all_sprites.draw(displaysurface)
     pygame.display.update()
     clock.tick(FPS)

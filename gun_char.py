@@ -7,16 +7,17 @@ from pygame.sprite import Sprite
 from pygame.locals import *
 from constants import WIDTH,HEIGHT
 
+import game_state
+
 class Gun_char(Sprite):
-    def __init__ (self, all_sprites, enemy_ships):
+    def __init__ (self):
         super(). __init__ ()
         self.image=pygame.surface.Surface((64,64))
         self.image.fill((0, 0, 93))
 
         self.rect = self.image.get_rect(center = (WIDTH / 2, HEIGHT / 1))
-        self.all_sprites = all_sprites
-        self.enemy_ships = enemy_ships
         self.shooting=False
+
     def update (self):
 
         pressed_keys = pygame.key.get_pressed()
@@ -35,10 +36,10 @@ class Gun_char(Sprite):
                 self.shooting=True
                 bullet=Projectile (
                     x=self.rect.centerx,
-                    y=self.rect.y, 
-                    enemy_ships = self.enemy_ships
+                    y=self.rect.y,
                 )
-                self.all_sprites.add(bullet)
+
+                game_state.all_sprites.add(bullet)
         else: self.shooting=False 
 
         if pressed_keys[K_k]:

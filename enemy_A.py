@@ -21,7 +21,7 @@ armada=Armada()
 #enemy_A "sprite"
 class Enemy_A(Sprite):
     #constructor
-    def __init__(self,x,y,all_sprites):
+    def __init__(self,x,y):
         super(). __init__ ()
    
     
@@ -31,7 +31,6 @@ class Enemy_A(Sprite):
         # corodinates of the Png
         self.rect = self.image.get_rect(center = (x,y))
        # self.direction = +10
-        self.all_sprites = all_sprites
         #health
         self.health=2 
         #hitbox 

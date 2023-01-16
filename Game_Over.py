@@ -8,7 +8,7 @@ from constants import WIDTH,HEIGHT
 #enemy_A "sprite"
 class Game_Over(Sprite):
     #constructor
-    def __init__(self,x,y,all_sprites):
+    def __init__(self,x,y):
         super(). __init__ ()
    
         
@@ -16,7 +16,7 @@ class Game_Over(Sprite):
         # corodinates of the Png
         self.rect = self.image.get_rect(center = (x,y))
        # self.direction = +10
-        self.all_sprites = all_sprites
+
     #def update (self):
     # def update (self):
 
