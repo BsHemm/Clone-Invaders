@@ -33,10 +33,13 @@ def reset_game():
     game_state.game_over = False
     game_state.all_sprites.empty()
     game_state.enemy_ships.empty()
+    game_state.player_ships.empty()
 
     # GUN_char instance
     gun_char=Gun_char()
     game_state.all_sprites.add(gun_char)
+    game_state.player_ships.add(gun_char)
+
     #define Gun_char health? INstance?
     #enemy creation arrangemnt loopS
     for x in range(50,WIDTH-200,75):
