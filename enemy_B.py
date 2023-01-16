@@ -67,6 +67,8 @@ class Enemy_B(Sprite):
         if hits:
             game_state.game_over = True
 
+        if self.rect.bottom >= HEIGHT * 0.9:
+            game_state.game_over = True
 
         if random.random()<0.003:
             m = Missile(x=self.rect.x,y=self.rect.y)
