@@ -26,7 +26,7 @@ pygame.display.set_caption("Clone Invaders")
 
 
 # GUN_char instance
-gun_char=Gun_char(game_state.all_sprites,game_state.enemy_ships)
+gun_char=Gun_char()
 game_state.all_sprites.add(gun_char) 
 game_state.gun_chars.add(gun_char)
 #define Gun_char health? INstance?
