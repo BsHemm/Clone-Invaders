@@ -1,8 +1,9 @@
 import pygame
+import game_state
 from pygame.sprite import Sprite
 #Enemy_b's projectile.
 class Missile(Sprite):
-    def __init__(self,x,y,):
+    def __init__(self,x,y):
         super(). __init__ ()
     # def __init__(self,x,y,radius,color,facing):
         self.x = x
@@ -18,7 +19,7 @@ class Missile(Sprite):
     def update (self):
         self.rect.y+=5
         # #hit detetction
-        # hits = pygame.sprite.spritecollide(self , self.enemy_B, True)
-        # if hits:
-        #     self.kill()
+        hits = pygame.sprite.spritecollide(self , game_state.gun_chars, True)
+        if hits:
+             self.kill()
         

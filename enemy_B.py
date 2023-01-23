@@ -61,5 +61,5 @@ class Enemy_B(Sprite):
         # if self.health >=0:pass
         #     #enemy despawns
         if random.random()<0.003:
-            m = Missile(x=self.rect.x,y=self.rect.y)
+            m = Missile(x=self.rect.x,y=self.rect.y,)
             self.all_sprites.add(m)

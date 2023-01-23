@@ -17,6 +17,9 @@ class Gun_char(Sprite):
         self.all_sprites = all_sprites
         self.enemy_ships = enemy_ships
         self.shooting=False
+        #health
+        self.health=2
+        health=self.health
     def update (self):
 
         pressed_keys = pygame.key.get_pressed()
@@ -40,6 +43,10 @@ class Gun_char(Sprite):
                 )
                 self.all_sprites.add(bullet)
         else: self.shooting=False 
+
+        if self.health <=0:
+            g=Game_Over(x=WIDTH/2,y=HEIGHT/2,all_sprites=all_sprites)
+            all_sprites.add(g)
 
         if pressed_keys[K_k]:
             if self.dead==False:
