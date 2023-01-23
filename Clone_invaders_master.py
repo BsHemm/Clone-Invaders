@@ -36,7 +36,7 @@ for x in range(50,WIDTH-200,75):
 
         #enemies INstances
         # enemy_a=Enemy_A(x*75,50,game_state.all_sprites)
-        enemy=Enemy_B(x,y,game_state.all_sprites)
+        enemy=Enemy_B(x,y)
         game_state.all_sprites.add(enemy)
         game_state.enemy_ships.add(enemy)
 

@@ -1,6 +1,7 @@
 import pygame
 import sys
 import random
+import game_state
 
 from Enemy_Bullet import Missile
 from pygame.sprite import Sprite
@@ -24,7 +25,7 @@ armada=Armada()
 #enemy_A "sprite"
 class Enemy_B(Sprite):
     #constructor
-    def __init__(self,x,y,all_sprites):
+    def __init__(self,x,y):
         super(). __init__ ()
    
      
@@ -32,7 +33,7 @@ class Enemy_B(Sprite):
         # corodinates of the Png
         self.rect = self.image.get_rect(center = (x,y))
        # self.direction = +10
-        self.all_sprites = all_sprites
+        
         #health
         self.health=2 
         #hitbox 
@@ -62,4 +63,4 @@ class Enemy_B(Sprite):
         #     #enemy despawns
         if random.random()<0.003:
             m = Missile(x=self.rect.x,y=self.rect.y,)
-            self.all_sprites.add(m)
+            game_state.all_sprites.add(m)
