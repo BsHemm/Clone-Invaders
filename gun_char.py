@@ -50,3 +50,6 @@ class Gun_char(Sprite):
         if pressed_keys[K_k]:
             if self.dead==False:
                 self.dead=True
+
+       # if self.dead=True:
+
