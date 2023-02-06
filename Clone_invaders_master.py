@@ -23,7 +23,9 @@ displaysurface = pygame.display.get_surface()
 displaysurface = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Clone Invaders")
 
-
+#game over
+g=Game_Over(x=WIDTH/2,y=HEIGHT/2,)
+game_state.game_over_sprites.add(g)
 
 # GUN_char instance
 gun_char=Gun_char()
@@ -56,8 +58,7 @@ while game_state.game_over==False:
             sys.exit()
     pressed_keys = pygame.key.get_pressed()
     if pressed_keys[K_p]:
-        g=Game_Over(x=WIDTH/2,y=HEIGHT/2,all_sprites=game_state.all_sprites)
-        game_state.all_sprites.add(g)
+        game_state.game_over=True
          
 
     game_state.all_sprites.update()
@@ -86,7 +87,7 @@ while game_state.game_over==True:
 #game over screen
    
     displaysurface.fill((0,0,0))
-    game_state.all_sprites.draw(displaysurface)
+    game_state.game_over_sprites.draw(displaysurface)
     pygame.display.update()
     clock.tick(FPS)
 
