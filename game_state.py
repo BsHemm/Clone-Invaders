@@ -9,3 +9,7 @@ all_sprites = pygame.sprite.Group()
 enemy_ships=pygame.sprite.Group() 
 #opposing sprite collision detection group
 gun_chars=pygame.sprite.Group()
+
+#game_over.sprites
+
+game_over=False

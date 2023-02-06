@@ -19,7 +19,7 @@ class Missile(Sprite):
     def update (self):
         self.rect.y+=5
         # #hit detetction
-        hits = pygame.sprite.spritecollide(self , game_state.gun_chars, True)
+        hits = pygame.sprite.spritecollide(self , game_state.gun_chars, False)
         if hits:
              self.kill()
-        
+             game_state.game_over=True

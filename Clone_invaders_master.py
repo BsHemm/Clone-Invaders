@@ -49,7 +49,7 @@ for x in range(50,WIDTH-200,75):
 
         
 #game loop
-while True:
+while game_state.game_over==False:
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
@@ -76,3 +76,17 @@ while True:
     game_state.all_sprites.draw(displaysurface)
     pygame.display.update()
     clock.tick(FPS)
+
+#post game loop
+while game_state.game_over==True:
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+#game over screen
+   
+    displaysurface.fill((0,0,0))
+    game_state.all_sprites.draw(displaysurface)
+    pygame.display.update()
+    clock.tick(FPS)
+
